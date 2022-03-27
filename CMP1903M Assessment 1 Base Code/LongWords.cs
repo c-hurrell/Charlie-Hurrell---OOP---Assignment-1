@@ -9,9 +9,9 @@ public class LongWord
 	public LongWord()
 	{
 	}
-	public List<string> LongWords(string text)
+	public List<string> LongWords(string text) // Filters out long words from the text
     {
-		text = text.Replace('.', ' ').Replace('*', ' ').Replace(',', ' ');
+		text = text.Replace('.', ' ').Replace('?', ' ').Replace(',', ' ').Replace('!',' ');
 		List<string> WordList = new List<string>();
 		string[] textSplit = text.Split(' ');
 		for(int i = 0; i < textSplit.Length; i++)
