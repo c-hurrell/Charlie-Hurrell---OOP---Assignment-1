@@ -35,23 +35,19 @@ namespace CMP1903M_Assessment_1_Base_Code
         }
         public void longwords_save(List<string> longWords)
         {
-            string longFileName = @"C:\Users\charl\OneDrive\Documents\Semester B Modules\Object Oriented Programming\CMP1903M Assessment 1 Base Code\CMP1903M Assessment 1 Base Code\LongWordsSave.txt";
-            if(File.Exists(longFileName))
+            // This creates a file in the current directory for the user to access
+            // (The common save location would be:\Assessment 1 Base Code\bin\Debug\net6.0\LongWordsSave.txt)
+            // If the file isnt already present then it will be overwritten
+            string fileAddress = Environment.CurrentDirectory + @"\LongWordsSave.txt";
+            Console.WriteLine(fileAddress);
+            using (StreamWriter sw = File.CreateText(fileAddress))
             {
-                using(StreamWriter sw = File.CreateText(longFileName))
+                for (int i = 0; i < longWords.Count; i++)
                 {
-                    for(int i = 0; i < longWords.Count;i++)
-                    {
-                        sw.WriteLine(longWords[i]);
-                    }
+                    sw.WriteLine(longWords[i]);
                 }
             }
 
-            
         }
-
-          
-
-
     }
 }
